@@ -1,0 +1,142 @@
+#ifconfig
+Βρίσκουμε την ip μας (192.168.30.x) διαφορετικά πρέπει να βάλουμε μόνο 1 interface ως bridge adapter στο Virtual Box
+
+#man ls
+#ls --help
+Βοηθητικό manual σχετικά με την εντολή ls
+
+#nmap di.ionio.gr
+Port Scanning για το di.ionio.gr ή κάποια ip
+-sU για UDP Ports
+-sS για Stealth Scans
+-sV για Version
+
+#nmap -sV 192.168.30.1
+Επιπλέον arguments για να μας επιστρέψει και την Version από κάθε τεχνολογία (πχ. ftp 2.3)
+
+#arp-scan -l
+Arp Scan σε όλο το δίκτυο που ανήκουμε. Ουσιαστικά στέλνει Arp call στο router μας
+
+Βασικές Εντολές
+ls: 
+εμφανίζει τους φακέλους και τα αρχεία
+
+ls --la: 
+εμφανίζει και τα κρυφά (-a) (-l για να εμφανίσει λεπτομέρειες) 
+
+cd: 
+Αλλαγή φακέλου (cd directory)
+
+cd .. 
+Πηγαίνει στον πίσω φάκελο
+
+mkdir directory 
+Δημιουργεί νέο φάκελο (μπορούμε να θέσουμε και που ακριβώς αν θέλουμε αλλού)
+
+cd directory 
+Μπαίνουμε στον φάκελο
+
+cp /root/desktop/file.txt /root/desktop/directory/file.txt 
+Αντιγραφή φακέλου
+
+mv /root/desktop/file.txt /root/desktop/directory/file.txt 
+Μετακίνηση η μετονομασία αρχείου (αν είναι στο ίσιο path το μετονομάζει)
+
+mv -R /root/desktop/directory /root/desktop/new_name_directory 
+mvfolder (εναλλακτικά)
+Μετακίνηση φακέλου
+
+-R Για φακέλους
+
+touch file.txt 
+Δημιουργία νέου αρχείου
+
+nano file.txt 
+Επεξεργασία αρχείου με κειμενογράφου nano
+
+vi file.txt 
+Επεξεργασία αρχείου με κειμενογράφου vi
+
+
+gedit file.txt 
+Επεξεργασία αρχείου με κειμενογράφου gedit
+
+
+echo "hey" > hey.txt 
+Εμφανίζει το message hey και το στέλνει «>» σε ένα αρχείο txt που το δημιουργεί αν δεν υπάρχει.
+
+echo "base64string" | base64 –decode 
+Εμφανίζει ένα μήνυμα και το διοχετεύει στο πρόγραμμα base64 το οποίο κάνει decrypt
+
+netdiscover -r 192.168.30.0/24 
+Ανίχνευση hosts στο υποδίκτυο 30.0/24
+
+netdiscover 
+Ανίχνευση hosts σε όλα τα υποδίκτυα
+
+arp vs netdiscover Arp στο υποδίκτυο | Netdiscover σε όλα τα υποδίκτυα
+
+ping 192.168.30.1 
+Βλέπουμε αν έχουμε επικοινωνία (Ορισμένες φορές οι hosts μπορεί να μην δέχονται ping requests, αυτό δεν σημαίνει ότι δεν είναι “up”)
+
+traceroute google.com 
+Ανίχνευση μονοπατιού δικτύου μέχρι το google
+
+ssh -p 2220 username@192.168.30.1 or Putty/other software 
+(Σύνδεση απομακρυσμένης γραμμής εντολών – κρυπτογραφημένης)
+
+
+telnet username@192.168.30.1 
+Το ίδιο αλλά μη κρυπτογραφημένη επικοινωνία
+
+nc -lvp 1324 
+Netcat το εργαλείο που μπορούμε να στείλουμε πακέτα δεδομένων ή να ακούσουμε από το δίκτυο. Πχ αυτή η εντολή “-l” είμαστε σε κατάσταση listen και περιμένουμε πακέτα που στέλνονται σε port 1324.
+Πχ. echo “test” | nc -u 10.0.2.5 231 
+Στέλνουμε το μήνυμα test μέσω netcat στο udp port 231 και στην ip 10.0.2.5
+
+Tcpdump 
+βλέπουμε ότι πακέτα έρχονται στο δικό μας host. Αν θέλουμε μπορούμε να φιλτράρουμε και να δούμε μόνο αυτά που έρχονται από συγκεκριμένη ip. Πχ. tcpdump host 192.168.30.1
+
+Κατέβασμα ή ανέβασμα αρχείων μέσω ssh
+scp -P 11075 C:\Users\skrypt\Desktop\Required.txt skaragiannis@0.tcp.ngrok.io:/home/skaragiannis/required.txt
+
+
+SSH Chat
+ssh username@localhost -p 2022
+
+
+Assigment 1
+
+#nmap 192.168.30.1
+See the Ports are running. Google every port number to see the service
+Try running #nmap –sV 192.168.30.1
+
+
+Google to see what are the Base64 Strings
+#echo “Put a Base64String” | base64 –decrypt
+Or try to find it on the web
+
+Rot13
+#echo "some rot13 string" | tr '[A-Za-z]' '[N-ZA-Mn-za-m]'
+
+Crack a Zip file password
+fcrackzip -u -D -p '/usr/share/wordlists/somedictionary.txt' filename.zip
+https://pentaroot.com/cracking-encrypted-zip-fcrackzip/
+
+Strings Command
+#strings file.txt
+
+Open Wireshark and intercept a telnet session
+Save pcap. > Open again .pcap > Filter Tcp.host ip or filter a specific ip. > Follow Stream
+
+Open source of a webpage
+Open robots.txt
+Open wp-admin
+
+https://medium.com/@Kan1shka9/overthewire-wargames-bandit-walkthrough-df2b86826c67
+Levels: 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 13, 14, 16, 17, 18, 19, 24
+
+Necromancer
+https://securitybytes.io/vulnhub-com-necromancer-1-ctf-walkthrough-4b58a708f747
+https://5h4d0wb0y.github.io/2017-05-12-the-necromancer1/
+
