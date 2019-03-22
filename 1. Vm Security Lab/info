@@ -1,1 +1,10 @@
 
+Download Kali
+
+cypher.gr/Kali-Linux-2016.1-vbox-amd64.ova.zip
+
+Unzip
+Double click to Import
+Change adapter options -> 
+  Bridged adapter if inside the LAN
+  Host only adapter both systems or NatNetwork (DCHP Enabled)
