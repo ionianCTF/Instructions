@@ -1,0 +1,8 @@
+Every challenge includes a virtual system. The main purpose is to discover any of the vulnerabilities of the system, using ethical hacking and penetration testing methods.
+The main Operating System for reconnaisance or for executing the attacks is Kali Linux.
+
+The main methods and commands used are included to the following summary git repository.
+https://github.com/chreniuc/CTF
+
+Other commands might be found on Google. Please focus on mastering the basic linux commands required for these challenges and also the usage of virtual box or other virtualization software.
+
